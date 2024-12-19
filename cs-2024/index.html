@@ -131,9 +131,8 @@
             const mapImage = document.getElementById('usMap'); // Get the <img> element
 
             if (stateInput) {
-                // Construct the file path based on input
-                const filePath = `./final%20images/${stateInput}.png`; // Use %20 for spaces in folder names
-
+                // Construct the raw GitHub URL based on input
+                const filePath = `https://raw.githubusercontent.com/amnotpopichu/amnotpopichu.github.io/main/cs-2024/final%20images/${stateInput.charAt(0).toUpperCase() + stateInput.slice(1).toLowerCase()}.png`;
 
                 // Update the image src
                 mapImage.src = filePath;
