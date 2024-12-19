@@ -132,7 +132,8 @@
 
             if (stateInput) {
                 // Construct the file path based on input
-                const filePath = `./final images/${stateInput}.png`;
+                const filePath = `./final%20images/${stateInput}.png`; // Use %20 for spaces in folder names
+
 
                 // Update the image src
                 mapImage.src = filePath;
