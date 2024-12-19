@@ -1,255 +1,162 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    
-  
-      <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-  
-      <meta name="apple-mobile-web-app-title" content="CodePen">
-  
-      <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-  
-      <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
-  
-  
-  
-    
-      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
-  
-  
-    <title>css vars styling</title>
-  
-      <link rel="canonical" href="https://codepen.io/meodai/pen/rNedxBa">
-    
+    <link rel="apple-touch-icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/1/1a/Blank_US_Map_%28states_only%29.svg">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/1/1a/Blank_US_Map_%28states_only%29.svg">
+    <link rel="mask-icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/1/1a/Blank_US_Map_%28states_only%29.svg" color="#111">
+    <title>CS Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  
-    
-    
-  <style>
-  @import url("https://rsms.me/inter/inter.css");
-  :root {
-    --color-light: white;
-    --color-dark: #212121;
-    --color-signal: #fab700;
-    --color-background: var(--color-light);
-    --color-text: var(--color-dark);
-    --color-accent: var(--color-signal);
-    --size-bezel: .5rem;
-    --size-radius: 4px;
-    line-height: 1.4;
-    font-family: "Inter", sans-serif;
-    font-size: calc(.6rem + .4vw);
-    color: var(--color-text);
-    background: var(--color-background);
-    font-weight: 300;
-    padding: 0 calc(var(--size-bezel) * 3);
-  }
-  
-  h1, h2, h3 {
-    font-weight: 900;
-  }
-  
-  mark {
-    background: var(--color-accent);
-    color: var(--color-text);
-    font-weight: bold;
-    padding: 0 0.2em;
-  }
-  
-  .card {
-    background: var(--color-background);
-    padding: calc(4 * var(--size-bezel));
-    margin-top: calc(4 * var(--size-bezel));
-    border-radius: var(--size-radius);
-    border: 3px solid var(--color-shadow, currentColor);
-    box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
-  }
-  .card--inverted {
-    --color-background: var(--color-dark);
-    color: var(--color-light);
-    --color-shadow: var(--color-accent);
-  }
-  .card--accent {
-    --color-background: var(--color-signal);
-    --color-accent: var(--color-light);
-    color: var(--color-dark);
-  }
-  .card *:first-child {
-    margin-top: 0;
-  }
-  
-  .l-design-widht {
-    max-width: 40rem;
-    padding: 1rem;
-  }
-  
-  .input {
-    position: relative;
-  }
-  .input__label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
-    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
-    background: pink;
-    white-space: nowrap;
-    transform: translate(0, 0);
-    transform-origin: 0 0;
-    background: var(--color-background);
-    transition: transform 120ms ease-in;
-    font-weight: bold;
-    line-height: 1.2;
-  }
-  .input__field {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border: 3px solid currentColor;
-    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
-    color: currentColor;
-    background: transparent;
-    border-radius: var(--size-radius);
-  }
-  .input__field:not(:-moz-placeholder-shown) + .input__label {
-    transform: translate(0.25rem, -65%) scale(0.8);
-    color: var(--color-accent);
-  }
-  .input__field:not(:-ms-input-placeholder) + .input__label {
-    transform: translate(0.25rem, -65%) scale(0.8);
-    color: var(--color-accent);
-  }
-  .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
-    transform: translate(0.25rem, -65%) scale(0.8);
-    color: var(--color-accent);
-  }
-  
-  .button-group {
-    margin-top: calc(var(--size-bezel) * 2.5);
-  }
-  
-  button {
-    color: currentColor;
-    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
-    background: var(--color-accent);
-    border: none;
-    border-radius: var(--size-radius);
-    font-weight: 900;
-  }
-  button[type=reset] {
-    background: var(--color-background);
-    font-weight: 200;
-  }
-  
-  button + button {
-    margin-left: calc(var(--size-bezel) * 2);
-  }
-  
-  .icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: 0.5em;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  </style>
-  
-    <script>
-    window.console = window.console || function(t) {};
-  </script>
-  
-    
-    
-  </head>
-  
-  <body translate="no" data-new-gr-c-s-check-loaded="14.1212.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1212.0">
+    <style>
+        @import url("https://rsms.me/inter/inter.css");
+        :root {
+            --color-light: white;
+            --color-dark: #212121;
+            --color-signal: #fab700;
+            --color-background: var(--color-light);
+            --color-text: var(--color-dark);
+            --color-accent: var(--color-signal);
+            --size-bezel: .5rem;
+            --size-radius: 4px;
+            line-height: 1.4;
+            font-family: "Inter", sans-serif;
+            font-size: calc(.6rem + .4vw);
+            color: var(--color-text);
+            background: var(--color-background);
+            font-weight: 300;
+            padding: 0 calc(var(--size-bezel) * 3);
+        }
+        h1, h2, h3 {
+            font-weight: 900;
+        }
+        mark {
+            background: var(--color-accent);
+            color: var(--color-text);
+            font-weight: bold;
+            padding: 0 0.2em;
+        }
+        .card {
+            background: var(--color-background);
+            padding: calc(4 * var(--size-bezel));
+            margin-top: calc(4 * var(--size-bezel));
+            border-radius: var(--size-radius);
+            border: 3px solid var(--color-shadow, currentColor);
+            box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+        }
+        .l-design-widht {
+            max-width: 36rem; /* Slightly smaller width */
+            padding: 1rem;
+        }
+        .input {
+            position: relative;
+            margin-top: 1.5rem;
+        }
+        .input__label {
+            position: absolute;
+            left: 0.75rem;
+            top: 0.75rem;
+            padding: 0 0.2rem;
+            background: var(--color-background);
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+        .input__field {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            border: 2px solid var(--color-dark);
+            padding: 0.9rem 0.7rem; /* Reduced padding */
+            font-size: 0.9rem; /* Reduced font size */
+            color: var(--color-dark);
+            background: transparent;
+            border-radius: var(--size-radius);
+        }
+        .input__field:focus + .input__label,
+        .input__field:not(:placeholder-shown) + .input__label {
+            top: -0.6rem;
+            left: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--color-accent);
+        }
+        .button-group {
+            margin-top: calc(var(--size-bezel) * 2.5);
+        }
+        button {
+            color: currentColor;
+            padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+            background: var(--color-accent);
+            border: none;
+            border-radius: var(--size-radius);
+            font-weight: 900;
+            transition: transform 0.1s ease;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        /* Map Styling */
+        #usMap {
+            width: 100%; /* Default for the default map */
+            height: auto;
+        }
+        .native-resolution {
+            transform: scale(0.5); /* Scale down to 1/2 of the original size */
+            transform-origin: top left; /* Ensure scaling originates from the top-left corner */
+            width: auto; /* Preserve original aspect ratio */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
     <article class="l-design-widht">
-    <h1>Mini CSS-vars Design System</h1>
-  
-    <p>Most of the projects I work on have about <mark>3</mark> important colors: Main- , Accent-  and Background-Color. Naturally tons of other colors are used in a typical Project, but they are mostly used within specific components.</p>
-    
-    <p>I find it useful to set those 3 colors as vars on the root and change them in specific contexts. It turns out that the complexity of the components I build is dramatically cut down by this. And also gives me a lot of control over the cascade.</p>
-    
-    <div class="card">
-      <h2><svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-coffee" href="#icon-coffee"></use></svg>Regular</h2>
-      <label class="input">
-        <input class="input__field" type="text" placeholder=" ">
-        <span class="input__label">Some Fancy Label</span>
-      </label>
-      <div class="button-group">
-        <button>Send</button>
-        <button type="reset">Reset</button>
-      </div>
-    </div>
-    <div class="card card--inverted">
-      <h2> <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-coffee" href="#icon-coffee"></use>
-      </svg>Inverted</h2>
-      <label class="input">
-        <input class="input__field" type="text" placeholder=" " value="Valuable value">
-        <span class="input__label">Some Fancy Label</span>
-      </label>
-     
-      <div class="button-group">
-        <button>Send</button>
-        <button type="reset">Reset</button>
-      </div>
-    </div>
-      <div class="card card--accent">
-      <h2><svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-coffee" href="#icon-coffee"></use>
-      </svg>Accent</h2>
-      <label class="input">
-        <input class="input__field" type="text" placeholder=" ">
-        <span class="input__label">Some Fancy Label</span>
-      </label>
-      
-      <div class="button-group">
-        <button>Send</button>
-        <button type="reset">Reset</button>
-      </div>
-    </div>
-    
-      <div class="card card--inverted">
-      <h2>Colors</h2>
-      <p>Play around with the colors</p>
-      <input type="color" data-color="light" value="#ffffff">
-      <input type="color" data-color="dark" value="#212121">
-      <input type="color" data-color="signal" value="#fab700">
-    </div>
-  </article>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-    <symbol id="icon-coffee" viewBox="0 0 20 20">
-      <title>icon-coffee</title>
-      <path fill="currentColor" d="M15,17H14V9h3a3,3,0,0,1,3,3h0A5,5,0,0,1,15,17Zm1-6v3.83A3,3,0,0,0,18,12a1,1,0,0,0-1-1Z"></path>
-      <rect fill="currentColor" x="1" y="7" width="15" height="12" rx="3" ry="3"></rect>
-      <path fill="var(--color-accent)" d="M7.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,0,1-1.79.89Z"></path>
-      <path fill="var(--color-accent)" d="M3.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,1,1-1.79.89Z"></path>
-      <path fill="var(--color-accent)" d="M11.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,1,1-1.79.89Z"></path>
-    </symbol>
-  </svg>
-    
-        <script id="rendered-js">
-  let timer;
-  
-  document.addEventListener('input', e => {
-    const el = e.target;
-  
-    if (el.matches('[data-color]')) {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        document.documentElement.style.setProperty(`--color-${el.dataset.color}`, el.value);
-      }, 100);
-    }
-  });
-  //# sourceURL=pen.js
-      </script>
-  
-    
-  
-  
-  
+        <h1>Income by City</h1>
+        <p>The goal of this project was to show how much of a difference there really is between the 1% and the rest of country. After trying it out, reflect on your day, and what you are grateful for. </p>
+        <div class="card">
+            <h2>Enter a state name</h2>
+            <label class="input">
+                <input id="stateName" class="input__field" type="text" placeholder=" " onkeydown="handleKeyDown(event)">
+                <span class="input__label">State Name</span>
+            </label>
+            <div class="button-group">
+                <button onclick="updateMap()">View</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <img id="usMap" src="map.jpg" width="484" height="347.5" />
+    </article>
+    <script>
+        function updateMap() {
+            const stateInput = document.getElementById('stateName').value.trim(); // Get state name
+            const mapImage = document.getElementById('usMap'); // Get the <img> element
+
+            if (stateInput) {
+                // Construct the file path based on input
+                const filePath = `./final images/${stateInput}.png`;
+
+                // Update the image src
+                mapImage.src = filePath;
+
+                // Add native resolution class for state-specific images
+                mapImage.classList.add('native-resolution');
+
+                // Handle errors if the image doesn't exist
+                mapImage.onerror = function () {
+                    alert('State image not found. Please check the state name. (Make sure you are not trying Rhode Island. Because it is so small, the wordcloud could not generate)');
+                    mapImage.src = 'map.jpg'; // Revert to default map if image not found
+                    mapImage.classList.remove('native-resolution'); // Reset resolution class for the default map
+                };
+            } else {
+                alert('Please enter a valid state name.');
+            }
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission behavior
+                updateMap(); // Trigger the map update when Enter is pressed
+            }
+        }
+    </script>
+</body>
+</html>
